@@ -1,0 +1,30 @@
+pipeline {
+node { label 'java' }
+stages {
+        stage('clean WS') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('scm checkout') {
+            steps {
+               git 'https://github.com/12Madan/book-store.git'
+            }
+        }
+        stage('Build') {
+              steps {
+           sh '''
+          mvn clean package -DskipTests
+                echo "Workspace Path : $WORKSPACE"
+                echo "Build ID       : $BUILD_ID"
+                echo "Build Number   : $BUILD_NUMBER"
+                echo "Job Name       : $JOB_NAME"
+                echo "Node Name      : $NODE_NAME"
+          '''
+}
+}
+}
+}
+
+      
+ 
