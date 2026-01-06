@@ -1,5 +1,5 @@
 pipeline {
-node { label 'java' }
+agent{ label 'java' }
 stages {
         stage('clean WS') {
             steps {
