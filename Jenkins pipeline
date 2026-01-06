@@ -8,7 +8,7 @@ stages {
         }
         stage('scm checkout') {
             steps {
-               git 'https://github.com/12Madan/book-store.git'
+               git url: 'https://github.com/12Madan/royal-bank.git' branch: 'main'
             }
         }
         stage('Build') {
